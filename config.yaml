@@ -1,0 +1,38 @@
+# 数据配置
+data:
+  wiki_path: "data/wiki_zh"
+  processed_path: "outputs/processed_data"
+  train_split: 0.9
+  max_length: 512
+  
+# 模型配置
+model:
+  model_name: "uer/gpt2-chinese-cluecorpussmall"  # 或 "gpt2" 或 "scratch"
+  vocab_size: 21128
+  hidden_size: 768
+  num_hidden_layers: 12
+  num_attention_heads: 12
+  max_position_embeddings: 512
+  
+# 训练配置
+training:
+  batch_size: 8
+  num_epochs: 10
+  learning_rate: 5.0e-5
+  warmup_steps: 1000
+  gradient_accumulation_steps: 4
+  max_grad_norm: 1.0
+  save_steps: 5000
+  eval_steps: 1000
+  logging_steps: 100
+  output_dir: "outputs/models"
+  use_amp: true
+  seed: 42
+  
+# 生成配置
+generation:
+  max_length: 200
+  temperature: 1.0
+  top_k: 50
+  top_p: 0.95
+  num_return_sequences: 3
